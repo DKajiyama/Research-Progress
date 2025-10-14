@@ -1,0 +1,54 @@
+# **Background and Objective**
+
+- In recent years, the risk of **social exclusion** has increased due to:
+  - Decline of public transportation in rural areas
+  - Demographic changes such as population aging
+
+- Prior studies have shown that:
+  - Lack of mobility restricts access to activities
+  - This may exclude individuals from economic, social, and political life
+
+- People’s physical mobility supports:
+  - Face-to-face social interactions
+  - Formation and maintenance of **social networks (SN)**
+
+- In particular, weak ties (e.g., acquaintances, familiar strangers):
+  - Often emerge from casual or incidental encounters in public spaces
+  - Play an important role in social integration and access to information
+
+---
+
+## **Limitations of existing SN studies in transportation**
+
+- Most empirical studies use **egocentric SN surveys**:
+  - Respondents list close contacts using name generators
+
+- **Two major limitations:**
+  1. Weak ties are underreported
+     - Respondents recall only salient/strong relationships
+  2. Network structure cannot be observed
+     - Egocentric surveys capture only ego–alter ties
+     - Structural characteristics (density, centrality, clustering) are not observable
+
+→
+  then:
+  - Weak ties and structural features **must be observed**
+  - Local egocentric observations are not enough
+  - Population- or regional-level inference is required
+
+---
+
+## **Objective of this study**
+
+- To address these challenges, this study proposes the  
+  Networked Social Ties and Co-Location (NEST-CL) Survey
+
+- **Key idea:**
+  - Observe weak ties and overall SN structures
+  - Combine SN survey data with GPS trajectory data
+  - Estimate unobserved ties beyond direct observations
+
+- **Ultimate goal:**
+  - Build a basis for estimating **tie strength** and **structural characteristics**  
+    of social networks at the **population level**
+ 
