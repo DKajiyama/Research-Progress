@@ -104,7 +104,7 @@
 
 ## **3. Tie Strength Inference Model**
 
-- Participants install a **location-tracking smartphone app** to gather **GPS trajectory data** over a certain period.
+- Participants install a **location-tracking smartphone app** to gather GPS trajectory data over a certain period.
 - From GPS data, two behavioral indicators are extracted:
   - **Co-staying**: staying in close spatial proximity for a minimum duration.
   - **Co-moving**: moving together while maintaining spatial proximity.
@@ -113,7 +113,7 @@
   - **Spatial proximity** (distance between home and workplace)
   - **Homophily** (e.g., gender match, age group match)
 
-- The tie strength \( y_{ij} \) between individuals \( i \) and \( j \) is estimated using a **supervised learning model** (Random Forest):
+- The tie strength \( y_{ij} \) between individuals \( i \) and \( j \) is estimated using a supervised learning model (Random Forest):
   \[
   y_{ij} = f(x_{ij}^{\text{Co-location}},\; x_{ij}^{\text{Spatial Proximity}},\; x_{ij}^{\text{Homophily}})
   \]
@@ -126,7 +126,7 @@
   - Across-session pairs (within the same organization)
   - Across-organization pairs
 
-- This enables **inference of unobserved ties**, expanding the network beyond direct observation.
+- This enables inference of unobserved ties, expanding the network beyond direct observation.
 
 ---
 
@@ -137,4 +137,4 @@
   - Direct observation (to obtain ground-truth SN structure), and
   - Behavior-based inference (to estimate missing ties),
 
-- The NEST-CL framework provides a **basis for estimating the strength and structure of social networks at the population level**, overcoming the limitations of traditional egocentric surveys.
+- The NEST-CL framework provides a **basis for estimating the strength and structure of social networks at the population level, overcoming the limitations of traditional egocentric surveys.
