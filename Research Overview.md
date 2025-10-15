@@ -138,3 +138,44 @@
   - Behavior-based inference (to estimate missing ties),
 
 - The NEST-CL framework provides a **basis for estimating the strength and structure of social networks at the population level, overcoming the limitations of traditional egocentric surveys.
+
+## Case Study (Applied Example) — NEST-CL
+
+### Study Context & Participants
+- Deployed the NEST-CL survey across **three organizations in Hiroshima Prefecture**:
+  - **Hiroshima University** (students): 151
+  - **Fukken Co., Ltd.** (employees): 76
+  - **Higashi-Hiroshima City Hall** (employees): 47
+  - **Total:** 274 participants. :contentReference[oaicite:0]{index=0}
+- **Observation method**:
+  - Two-stage sampling (organizations → individuals), videoconference-based sessions,
+  - Five tie-strength categories: **Strong**, **Relatively Strong**, **Relatively Weak**, **Weak**, **Stranger**. :contentReference[oaicite:1]{index=1}
+
+### Behavioral Signals from GPS
+- **Co-staying detection**:
+  - Pairwise overlap of stay intervals with time threshold ≥ 30 s and distance threshold ≤ 30 m; proximity stays in open public spaces (not only within buildings) are counted. :contentReference[oaicite:2]{index=2} :contentReference[oaicite:3]{index=3}
+- **Co-moving detection**:
+  - Trajectories discretized at Δt = 30 s; if pairwise distance ≤ 30 m is maintained (allowing short gaps ≤ 3 min), segments ≥ 0.5 min are detected as co-moving. :contentReference[oaicite:4]{index=4}
+
+### Model & Overall Performance
+- **Supervised classification** of five tie classes using features from co-staying / co-moving, spatial proximity (home/work), and homophily.
+- **Overall Accuracy:** **0.7553** (N = 1,823). :contentReference[oaicite:5]{index=5}
+- **Per-class performance (Precision / Recall / F1 / Support):**
+  - Strong: 0.7184 / 0.5873 / 0.6463 / 126  
+  - Relatively Strong: 0.2909 / 0.2623 / 0.2759 / 122  
+  - Relatively Weak: 0.4667 / 0.4733 / 0.4700 / 281  
+  - Weak: 0.1316 / 0.0962 / 0.1111 / 52  
+  - Stranger: 0.8803 / 0.9122 / 0.8960 / 1,242. :contentReference[oaicite:6]{index=6}
+- **Key interpretation**:
+  - High discrimination for Strong and Stranger, while intermediate ties are harder to separate due to overlapping behavioral patterns. :contentReference[oaicite:7]{index=7}
+
+### Feature Importance (Top Signals)
+- **Workplace distance** (0.160) and **Home distance** (0.117) rank highest → **spatial proximity** dominates.  
+  Other top features include total/average co-location time, counts, time-of-day frequencies, unique locations, etc. :contentReference[oaicite:8]{index=8}
+- Aggregate interpretation: **spatial proximity is the primary explanatory factor**, whereas co-staying/co-moving variables show **limited marginal contribution** relative to proximity. :contentReference[oaicite:9]{index=9}
+
+### Cross-session Inference & Bias Note
+- Applying the model **across online survey sessions** suggests:
+  - Reduced shares of Strong / Relatively Strong ties in inferred distributions,
+  - Indicating mitigation of self-selection bias inherent in session composition. :contentReference[oaicite:10]{index=10}
+- Organization-specific context (e.g., lifestyles, residential patterns) appears to influence model behavior, underscoring the need for bias mitigation and generalizable modeling in future work. :contentReference[oaicite:11]{index=11}
