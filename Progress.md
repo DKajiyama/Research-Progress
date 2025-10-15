@@ -5,9 +5,9 @@
 
 As a next step, we plan to extend the NEST-CL framework by applying the trained tie strength estimation model to **secondary GPS datasets (e.g., Ichinose-data)**. This allows us to evaluate the **generalizability** of the model beyond the original survey participants.
 
-### **0. Defining Data
-- Target Period
-- Target Users
+### **0. Defining Data**
+- Target Period : 1 month (including many target users) 
+- Target Users : staying in Hiroshima on daytime
   
 ### **1. Identifying User's Affiliation from GPS Data**
 To apply the model, we first need to estimate each user’s affiliation using GPS data:
@@ -42,10 +42,10 @@ Once organizations are identified, we will attempt:
 - **How to determine organizational affiliation?**  
   - e.g., “Workplace (daytime stay) is in the same building”
 
-- **How to select valid organizations?**  
+- **How to select valid affiliations?**  
   - Based on number of individuals, type of building, or other thresholds
 
-- **Should the same model be used for within-organization and across-organization inference?**  
+- **Should the same model be used for within-affiliation and across-affiliation inference?**  
   - It is possible that different mechanisms are needed
   - Comparison or model adaptation may be required
 
