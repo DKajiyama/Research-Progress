@@ -5,23 +5,24 @@
 
 As a next step, we plan to extend the NEST-CL framework by applying the trained tie strength inference model to **secondary GPS datasets (e.g., Ichinose-data)**. This allows us to evaluate the **generalizability** of the model beyond the original survey participants.
 
-### **1. Model Application to External Organizations**
-- Use the model trained on survey-based tie strengths.
-- Apply the model to individuals who were **not part of the original survey**.
-- Objective: **infer tie strengths in external organizations** and **validate model performance**.
-
-### **2. Identifying Organizational Membership from GPS Data**
-To apply the model, we first need to estimate each individual’s organizational affiliation using GPS data:
+### **1. Identifying User's Affiliation from GPS Data**
+To apply the model, we first need to estimate each user’s affiliation using GPS data:
 - Detect **workplace (employment location)** based on daytime stay patterns.
 - Match the detected workplace with **building point data** (e.g., building name or land-use category).
 - Assign individuals to organizations based on the building they frequently stay in.
 
-### **3. Defining Target Organizations**
-We will select organizations that satisfy specific criteria, such as:
+### **2. Defining Target Affiliations**
+We will select Affiliations that satisfy specific criteria, such as:
 - Sufficient number of individuals (sample size threshold)
-- Appropriate building types or land-use categories (e.g., office, public facility)
+- Appropriate building-categories (e.g., office, public facility)
 
-Only organizations meeting these criteria will be used for inference.
+### **3. Model Application to External Affiliations**
+- Use the model trained on survey-based tie strengths.
+- Apply the model to individuals who were **not part of the original survey**.
+- Objective: infer tie strengths in external Affiliations and validate model performance.
+
+
+Only affiliations meeting these criteria will be used for inference.
 
 ### **4. Two Modes of Model Application**
 Once organizations are identified, we will attempt:
@@ -33,12 +34,12 @@ Once organizations are identified, we will attempt:
    - Apply the model to pairs *across different organizations*  
    - Test whether the model can capture inter-organizational social ties
 
-### **5. Key Discussion Points / Open Questions**
+### **Discussion Points**
 - **How to determine organizational affiliation?**  
   - e.g., “Workplace (daytime stay) is in the same building”
 
 - **How to select valid organizations?**  
-  - Based on **number of individuals**, **type of building**, or other thresholds
+  - Based on number of individuals, type of building, or other thresholds
 
 - **Should the same model be used for within-organization and across-organization inference?**  
   - It is possible that different mechanisms are needed
