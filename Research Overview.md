@@ -54,7 +54,7 @@
  
 # **Framework Overview**
 
-- The **NEST-CL (Networked Social Ties and Co-Location) Survey** is a framework designed to
+- The NEST-CL (Networked Social Ties and Co-Location) Survey is a framework designed to
   - efficiently **observe weak ties and structural characteristics** of social networks (SN),
   - and **statistically infer unobserved ties** using GPS trajectory data.
 
@@ -68,15 +68,15 @@
 ## **1. Sampling Design**
 
 - Uses a **two-stage sampling strategy**:
-  - **Stage 1:** Select organizations (e.g., university, company, city hall) as **primary sampling units (clusters)**.
+  - **Stage 1:** Select organizations (e.g., university, company, city hall) as primary sampling units (clusters).
   - **Stage 2:** Randomly sample individuals within each selected organization.
 
 - Rationale:
   - Real-world social networks are **sparse**, and randomly sampling individuals across the entire population would result in most pairs being **Strangers**.
-  - By sampling within organizations, the framework **increases the likelihood of observing existing social ties** (strong or weak).
-  - The two-stage design allows the framework to **strategically adjust the density of observed ties**, capturing a **balanced range of strong to weak ties**.
+  - By sampling within organizations, the framework increases the likelihood of observing existing social ties (strong or weak).
+  - The two-stage design allows the framework to strategically adjust the density of observed ties, capturing a balanced range of strong to weak ties.
 
-- Participants are further divided into **online survey sessions (20–30 people each)** due to tool limitations and respondent burden.
+- Participants are further divided into online survey sessions (20–30 people each) due to tool limitations and respondent burden.
 
 ---
 
@@ -91,7 +91,7 @@
   - **Stranger**
 
 - Features:
-  - Enables the observation of **weak ties and unfamiliar relationships** that are often missed by egocentric surveys.
+  - Enables the observation of weak ties and unfamiliar relationships that are often missed by egocentric surveys.
   - Because participants visually recognize each other, the framework can also capture “familiar strangers.”
   - The resulting directed SN data serve as ground-truth labels for model training.
 
@@ -102,7 +102,7 @@
 
 ---
 
-## **3. Tie Strength Inference Model**
+## **3. Tie Strength Estimation Model**
 
 - Participants install a **location-tracking smartphone app** to gather GPS trajectory data over a certain period.
 - From GPS data, two behavioral indicators are extracted:
