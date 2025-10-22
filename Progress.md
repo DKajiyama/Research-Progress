@@ -1,6 +1,6 @@
 # Research-Progress
 
-2025/10/25
+2025/10/15
 ## **Next Steps: Applying the Model to Secondary GPS Data**
 
 As a next step, we plan to extend the NEST-CL framework by applying the trained tie strength estimation model to **secondary GPS datasets (e.g., Ichinose-data)**. This allows us to evaluate the **generalizability** of the model beyond the original survey participants.
@@ -50,4 +50,37 @@ Once organizations are identified, we will attempt:
   - Comparison or model adaptation may be required
 
 ---
+2025/10/22
+## Data Processing Flow (To Ichinose User Data)
 
+### 1. Handling Missing Values
+- Extract only the records without missing values in the following three attributes:
+  - Age  
+  - Gender  
+  - Office location (identified using Azis-Office-Identification)
+- → Exclude users with missing values, keeping only those with complete attribute information.
+
+
+### 2. Filtering by Office Location
+- Select users whose workplaces are located within Hiroshima Prefecture.  
+  - using administrative boundary data to identify the prefectural area.  
+
+
+### 3. Setting the Target Period
+- Target period: `October 1–31, 2023`
+- Extract users who have GPS data observed within this period.
+
+
+### 4. Filtering by Observation Days
+- Select users with 14 days or more of GPS observations within the target period.  
+  - `Observation_days >= 14`
+- → Exclude users with less than 14 days of GPS data.
+
+
+### Defining the Target Users for Analysis
+- Users who meet all the above conditions are defined as target users for analysis.
+- Filterd users : 1,779 
+
+## **Discussion Points**
+- It is difficult to determine Affiliation accurately because the office location data are sparsely distributed.
+ What unit (boundary) should be used for co-location determination and SN generation?　
