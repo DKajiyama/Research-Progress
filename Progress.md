@@ -84,3 +84,130 @@ Once organizations are identified, we will attempt:
 ## **Discussion Points**
 - It is difficult to determine Affiliation accurately because the office location data are sparsely distributed.
  What unit (boundary) should be used for co-location determination and SN generation?　
+
+---
+2025/10/29
+## Co-staying Detection
+- Number of Co-staying: 4,365
+- Number of unique pairs: 3,005
+- Distribution of Building Categories
+  
+| summarized_category         | count |
+|----------------------------|------:|
+| Out of buildings           |  1638 |
+| Office & Business          |   574 |
+| Commercial Centers         |   563 |
+| Other                      |   391 |
+| Food & Dining              |   240 |
+| Logistics & Infrastructure |   212 |
+| Collective Housing         |   185 |
+| Public & Medical           |   142 |
+| Individual Housing         |   113 |
+| Leisure & Hospitality      |    87 |
+| Education & Learning       |    82 |
+| Outside Hiroshima          |    78 |
+| Retail                     |    44 |
+| General Services           |    16 |
+
+- Co-staying Counts by Building
+  
+| building_name                           | count | floors | summarized_category        |
+|-------------------------------------------------|------:|-------:|----------------------------|
+| イオンモール広島府中                            |   177 |    4.0 | Food & Dining              |
+| 広島駅                                          |    92 |    2.0 | Logistics & Infrastructure |
+| そごう広島店本館                                |    53 |   10.0 | Office & Business          |
+| 西部高架下                                      |    44 |    3.0 | Office & Business          |
+| ゆめタウン廿日市                                |    31 |    5.0 | Commercial Centers         |
+| (株) ロジコム東広島（営）                       |    29 |    0.0 | Other                      |
+| ひろしま駅ビルアッセ                            |    25 |    7.0 | Commercial Centers         |
+| エリザベト音楽大学                              |    24 |    9.0 | Education & Learning       |
+| ｅｋｉｅＤＩＮＩＮＧ・おみやげ館・エキエバル  |    24 |    2.0 | Office & Business          |
+| 広島市役所行政棟                                |    23 |   16.0 | Public & Medical           |
+| ＴＨＥＯＵＴＬＥＴＳＨＩＲＯＳＨＩＭＡ        |    23 |    2.0 | Commercial Centers         |
+| 広島市民球場                                    |    22 |    0.0 | Leisure & Hospitality      |
+| ＬＥＣＴ                                        |    22 |    4.0 | Commercial Centers         |
+| イオンモール広島祇園                            |    21 |    3.0 | Commercial Centers         |
+| イズミ新本社ビル                                |    21 |    6.0 | Commercial Centers         |
+| 市立広島市民病院                                |    21 |   10.0 | Public & Medical           |
+| 医療法人あかね会土谷総合病院                    |    20 |    9.0 | Public & Medical           |
+| ｅｋｉｅＫＩＴＣＨＥＮ                          |    20 |    1.0 | Office & Business          |
+| コストコホールセール広島倉庫店                  |    17 |    4.0 | Other                      |
+| サンモール                                      |    17 |    6.0 | Commercial Centers         |
+
+
+## Objective
+- Introduce floor-based weighting using building floor count **F** (treat F=0　or missing as F=1) to suppress spurious co-stays in large or high-rise buildings.
+
+## Features Changed (co-staying only)
+- **Total Co-staying Count** → replaced with Σ(1/F).
+- **Total Co-staying Duration** → replaced with Σ(duration/F).
+- **Average Co-staying Duration** → replaced with Σ(duration/F) ÷ Σ(1/F).
+- **Co-Staying Count by Duration Ranges** → based on duration/F.
+- **Co-Staying Count by Location Category** → based Σ(1/F).
+- **Co-Staying Counts by Time Band** *(Morning, Daytime, Evening, Night)* → based on Σ(1/F).
+
+### Overall Metrics
+| Metric        | Before | After  | Δ (After − Before) |
+|---|---:|---:|---:|
+| Accuracy      | 0.7553 | 0.7515 | −0.0038 |
+
+### Discussion: Resolving Collinearity in Totals, Category Counts, and Time-Band Counts.
+
+Is it okay to allocate the same amount to each floor? It would be better if each floor could be weighted according to its use.
+
+# 20251104
+## Future directions: 
+### Analysis of the association between GPS-based SN characteristics and urban environment(urban transport and facility distribution) in Hiroshima
+
+This study analyzes how transportation characteristics and the spatial distribution of commercial and public facilities influence social networks (SNs) generated from GPS data in cities within Hiroshima Prefecture.
+
+### Target cities:
+Hiroshima City
+Fukuyama City
+Higashihiroshima City
+Kure City
+(All have sufficient GPS data for SN generation)
+
+| Office_City | count |
+|---|---:|
+| 中区 | 259 |
+| 福山市 | 255 |
+| 西区 | 154 |
+| 南区 | 146 |
+| 安佐南区 | 136 |
+| 東広島市 | 124 |
+| 呉市 | 116 |
+| 安佐北区 | 67 |
+| 尾道市 | 67 |
+| 佐伯区 | 64 |
+| 廿日市市 | 61 |
+| 東区 | 61 |
+| 三原市 | 45 |
+| 安芸区 | 38 |
+| 府中町 | 30 |
+| 三次市 | 30 |
+| 府中市 | 26 |
+| 庄原市 | 13 |
+| 大竹市 | 13 |
+| 坂町 | 13 |
+| 海田町 | 11 |
+| 安芸高田市 | 7 |
+| 熊野町 | 7 |
+| 江田島市 | 7 |
+| 大崎上島町 | 6 |
+| 竹原市 | 6 |
+| 世羅町 | 6 |
+| 北広島町 | 5 |
+| 神石高原町 | 4 |
+| 安芸太田町 | 2 |
+
+### Model direction:
+An exploratory model in which social network (SN) characteristics of each city (under consideration) are used as dependent variables, and transportation, facility distribution, and geographical factors are used as explanatory variables.
+
+### Explanatory variables (candidates):
+(Based on the framework of Safira & Chikaraishi (2022))
+
+- Transportation characteristics: mode share (car, train, walking, etc.), average travel time, average travel distance
+- Facility distribution: number of commercial facilities, schools, and community centers, average distance between facilities
+- Geographical and social attributes: population, population density, area size
+(Data availability to be confirmed)
