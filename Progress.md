@@ -155,7 +155,7 @@ Once organizations are identified, we will attempt:
 
 Is it okay to allocate the same amount to each floor? It would be better if each floor could be weighted according to its use.
 
-# 20251104
+20251104
 ## Future directions: 
 ### Analysis of the association between GPS-based SN characteristics and urban environment(urban transport and facility distribution) in Hiroshima
 
@@ -211,3 +211,30 @@ An exploratory model in which social network (SN) characteristics of each city (
 - Facility distribution: number of commercial facilities, schools, and community centers, average distance between facilities
 - Geographical and social attributes: population, population density, area size
 (Data availability to be confirmed)
+
+20251112
+
+## Objective**
+- Generate a social network (SN) using *MilesData(Hiroshima-2023-Oct)*.
+
+## Issue Observed**
+- Some pairs are classified as Strong ties or Relatively Strong ties even without any observed co-staying or co-moving events.
+
+## Hypothesized Cause
+- Continuous distance features (Office_distance, Home_distance) dominate the model, implicitly translating “closer distance = stronger tie.”
+
+### Design Change (Feature Revision)**
+- Replace continuous distances with binary proximity dummies that only fire when locations are clearly close.
+
+### Options Considered
+1. Building-based dummies using building point data (Voronoi partitioning, building matching).
+2. Distance-based dummies (e.g., **within 100 m = 1**, else 0).
+
+### Rationale
+- Office/Home coordinates are cluster centroids, so they include positional noise.
+- Building-based matching is sensitive to small offsets and may misclassify.
+- Therefore, Option 2 (distance-based dummies) is preferable for robustness to small spatial shifts.
+
+## Current Status
+- Rebuilding the model using distance-threshold dummies for Office/Home proximity (e.g., 50–150 m bands tested; default 100 m).
+- Goal: reduce spurious strong-tie assignments when co-location are absent.
