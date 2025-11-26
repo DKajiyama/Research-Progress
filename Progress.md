@@ -299,68 +299,68 @@ generate SNs for each city and summarize their features.
 ## Per-tie Feature Importance
 ========== Tie 1: 1 vs others ==========
                          feature  importance
-31  total_costay_duration_scaled    0.080561
-14       unique_locations_scaled    0.079872
-30     total_costay_count_scaled    0.070521
-29       average_costay_duration    0.069815
-37         costay_evening_scaled    0.066095
-43                Same_Age_Group    0.052111 *
-36         costay_daytime_scaled    0.045553
-2            costay_10_30_scaled    0.040528　
-3            costay_30_60_scaled    0.035589 * 
-35         costay_morning_scaled    0.034747
+* total_costay_duration_scaled    0.080561
+* unique_locations_scaled    0.079872
+* total_costay_count_scaled    0.070521
+* average_costay_duration    0.069815
+* costay_evening_scaled    0.066095
+* Same_Age_Group    0.052111 *
+* costay_daytime_scaled    0.045553
+* costay_10_30_scaled    0.040528　
+* costay_30_60_scaled    0.035589 * 
+* costay_morning_scaled    0.034747
 
 ========== Tie 2: 1 vs others ==========
                          feature  importance
-48             Office_Close_200m    0.082951
-31  total_costay_duration_scaled    0.081673
-29       average_costay_duration    0.080360
-37         costay_evening_scaled    0.070059
-35         costay_morning_scaled    0.058216
-36         costay_daytime_scaled    0.057206
-30     total_costay_count_scaled    0.054777
-14       unique_locations_scaled    0.049956
-16     Commercial Centers_scaled    0.037996
-2            costay_10_30_scaled    0.034423
+* Office_Close_200m    0.082951
+* total_costay_duration_scaled    0.081673
+* average_costay_duration    0.080360
+* costay_evening_scaled    0.070059
+* costay_morning_scaled    0.058216
+* costay_daytime_scaled    0.057206
+* total_costay_count_scaled    0.054777
+* unique_locations_scaled    0.049956
+* Commercial Centers_scaled    0.037996
+* costay_10_30_scaled    0.034423
 
 ========== Tie 3: 1 vs others ==========
                          feature  importance
-48             Office_Close_200m    0.166972
-29       average_costay_duration    0.076043
-35         costay_morning_scaled    0.066082
-31  total_costay_duration_scaled    0.062167
-16     Commercial Centers_scaled    0.052955
-36         costay_daytime_scaled    0.049090 
-30     total_costay_count_scaled    0.048196
-14       unique_locations_scaled    0.047265
-37         costay_evening_scaled    0.039545
-17   Education & Learning_scaled    0.028375 * 
+* Office_Close_200m    0.166972
+* average_costay_duration    0.076043
+* costay_morning_scaled    0.066082
+* total_costay_duration_scaled    0.062167
+* Commercial Centers_scaled    0.052955
+* costay_daytime_scaled    0.049090 
+* total_costay_count_scaled    0.048196
+* unique_locations_scaled    0.047265
+* costay_evening_scaled    0.039545
+* Education & Learning_scaled    0.028375 * 
 
 ========== Tie 4: 1 vs others ==========
                          feature  importance
-29       average_costay_duration    0.068472
-31  total_costay_duration_scaled    0.062618
-30     total_costay_count_scaled    0.059974
-48             Office_Close_200m    0.057899 
-37         costay_evening_scaled    0.053393
-36         costay_daytime_scaled    0.052447
-14       unique_locations_scaled    0.051978
-35         costay_morning_scaled    0.044303
-1             costay_1_10_scaled    0.044204 
-16     Commercial Centers_scaled    0.042208
+* average_costay_duration    0.068472
+* total_costay_duration_scaled    0.062618
+* total_costay_count_scaled    0.059974
+* Office_Close_200m    0.057899 
+* costay_evening_scaled    0.053393
+* costay_daytime_scaled    0.052447
+* unique_locations_scaled    0.051978
+* costay_morning_scaled    0.044303
+* costay_1_10_scaled    0.044204 
+* Commercial Centers_scaled    0.042208
 
 ========== Tie 5: 1 vs others ==========
                          feature  importance
-48             Office_Close_200m    0.119943
-31  total_costay_duration_scaled    0.084839
-29       average_costay_duration    0.084512
-35         costay_morning_scaled    0.069764
-37         costay_evening_scaled    0.066421
-30     total_costay_count_scaled    0.054634
-14       unique_locations_scaled    0.052537
-36         costay_daytime_scaled    0.048112
-16     Commercial Centers_scaled    0.043156
-28       Out of buildings_scaled    0.036592 *
+* Office_Close_200m    0.119943
+* total_costay_duration_scaled    0.084839
+*  average_costay_duration    0.084512
+* costay_morning_scaled    0.069764
+* costay_evening_scaled    0.066421
+* total_costay_count_scaled    0.054634
+* unique_locations_scaled    0.052537
+* costay_daytime_scaled    0.048112
+* Commercial Centers_scaled    0.043156
+* Out of buildings_scaled    0.036592 *
 
 
 * Same_Age_Group and costay_30_60_scaled are important only for Strong ties, not for other tie categories.
