@@ -312,59 +312,62 @@ generate SNs for each city and summarize their features.
 
 ========== Tie 2: 1 vs others ==========
                          feature  importance
-* Office_Close_200m    0.082951
-* total_costay_duration_scaled    0.081673
-* average_costay_duration    0.080360
-* costay_evening_scaled    0.070059
-* costay_morning_scaled    0.058216
-* costay_daytime_scaled    0.057206
-* total_costay_count_scaled    0.054777
-* unique_locations_scaled    0.049956
-* Commercial Centers_scaled    0.037996
-* costay_10_30_scaled    0.034423
+* Office_Close_200m    :0.082951
+* total_costay_duration_scaled   : 0.081673
+* average_costay_duration   :0.080360
+* costay_evening_scaled    :0.070059
+* costay_morning_scaled    :0.058216
+* costay_daytime_scaled    :0.057206
+* total_costay_count_scaled    :0.054777
+* unique_locations_scaled    :0.049956
+* Commercial Centers_scaled    :0.037996
+* costay_10_30_scaled    :0.034423
 
 ========== Tie 3: 1 vs others ==========
                          feature  importance
-* Office_Close_200m    0.166972
-* average_costay_duration    0.076043
-* costay_morning_scaled    0.066082
-* total_costay_duration_scaled    0.062167
-* Commercial Centers_scaled    0.052955
-* costay_daytime_scaled    0.049090 
-* total_costay_count_scaled    0.048196
-* unique_locations_scaled    0.047265
-* costay_evening_scaled    0.039545
-* Education & Learning_scaled    0.028375 * 
+* Office_Close_200m    :0.166972
+* average_costay_duration    :0.076043
+* costay_morning_scaled    :0.066082
+* total_costay_duration_scaled    :0.062167
+* Commercial Centers_scaled    :0.052955
+* costay_daytime_scaled    :0.049090 
+* total_costay_count_scaled   : 0.048196
+* unique_locations_scaled    :0.047265
+* costay_evening_scaled    :0.039545
+* Education & Learning_scaled    :0.028375 * 
 
 ========== Tie 4: 1 vs others ==========
                          feature  importance
-* average_costay_duration    0.068472
-* total_costay_duration_scaled    0.062618
-* total_costay_count_scaled    0.059974
-* Office_Close_200m    0.057899 
-* costay_evening_scaled    0.053393
-* costay_daytime_scaled    0.052447
-* unique_locations_scaled    0.051978
-* costay_morning_scaled    0.044303
-* costay_1_10_scaled    0.044204 
-* Commercial Centers_scaled    0.042208
+* average_costay_duration    :0.068472
+* total_costay_duration_scaled    :0.062618
+* total_costay_count_scaled    :0.059974
+* Office_Close_200m    :0.057899 
+* costay_evening_scaled    :0.053393
+* costay_daytime_scaled    :0.052447
+* unique_locations_scaled    :0.051978
+* costay_morning_scaled    :0.044303
+* costay_1_10_scaled    :0.044204 
+* Commercial Centers_scaled    :0.042208
 
 ========== Tie 5: 1 vs others ==========
                          feature  importance
-* Office_Close_200m    0.119943
-* total_costay_duration_scaled    0.084839
-*  average_costay_duration    0.084512
-* costay_morning_scaled    0.069764
-* costay_evening_scaled    0.066421
-* total_costay_count_scaled    0.054634
-* unique_locations_scaled    0.052537
-* costay_daytime_scaled    0.048112
-* Commercial Centers_scaled    0.043156
-* Out of buildings_scaled    0.036592 *
+* Office_Close_200m    :0.119943
+* total_costay_duration_scaled    :0.084839
+*  average_costay_duration    :0.084512
+* costay_morning_scaled    :0.069764
+* costay_evening_scaled    :0.066421
+* total_costay_count_scaled    :0.054634
+* unique_locations_scaled    :0.052537
+* costay_daytime_scaled    :0.048112
+* Commercial Centers_scaled    :0.043156
+* Out of buildings_scaled    :0.036592 *
 
 
+### Summary
 * Same_Age_Group and costay_30_60_scaled are important only for Strong ties, not for other tie categories.
 * Office_Close_200m is a consistently important predictor for Relatively Strong → Stranger, and does not appear for Strong ties.
 * Education & Learning_scaled is important only for Relatively Weak ties.
 * Out of buildings_scaled is important only for Stranger ties.
 * Important note: Feature importance indicates that a feature is useful for discrimination, but it does not tell whether the feature’s value is higher or lower for a given tie category.
+
+
