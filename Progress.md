@@ -402,6 +402,7 @@ generate SNs for each city and summarize their features.
 
 ### Defining the Target Users for Analysis
 - Users who meet all the above conditions are defined as target users for analysis.
+
 | City         | # of Users |
 |--------------|------------|
 | Tokyo23ku    | 14195      |
