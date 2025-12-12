@@ -371,3 +371,58 @@ generate SNs for each city and summarize their features.
 * Important note: Feature importance indicates that a feature is useful for discrimination, but it does not tell whether the feature’s value is higher or lower for a given tie category.
 
 
+2025/12/15
+###  Handling Missing Values
+- Extract only the records without missing values in the following three attributes:
+  - Age  
+  - Gender  
+  - Office location (identified using Azis-Office-Identification)
+- → Exclude users with missing values, keeping only those with complete attribute information.
+
+
+###  Filtering by Office Location and Missing Values
+- Exclude users with missing values, keeping only those with complete attribute information.
+  - Age  
+  - Gender  
+  - Office location (identified using Azis-Office-Identification)
+- Select users whose workplaces are located within ordinance-designated city (20 cities).  
+  - using administrative boundary data to identify the prefectural area.  
+
+
+### Setting the Target Period
+- Target period: `October 1–31, 2023`
+- Extract users who have GPS data observed within this period.
+
+
+### 4. Filtering by Observation Days
+- Select users with 14 days or more of GPS observations within the target period.  
+  - `Observation_days >= 14`
+- → Exclude users with less than 14 days of GPS data.
+
+
+### Defining the Target Users for Analysis
+- Users who meet all the above conditions are defined as target users for analysis.
+| City         | # of Users |
+|--------------|------------|
+| Tokyo23ku    | 14195      |
+| Osaka        | 4780       |
+| Yokohama     | 3176       |
+| Nagoya       | 2565       |
+| Kyoto        | 1642       |
+| Kobe         | 1524       |
+| Fukuoka      | 1455       |
+| Sapporo      | 1507       |
+| Kawasaki     | 1241       |
+| Hiroshima    | 925        |
+| Saitama      | 1029       |
+| Sendai       | 847        |
+| Sakai        | 740        |
+| Chiba        | 738        |
+| Kitakyushu   | 509        |
+| Okayama      | 481        |
+| Hamamatsu    | 462        |
+| Shizuoka     | 475        |
+| Kumamoto     | 488        |
+| Niigata      | 458        |
+| Sagamihara   | 492        |
+
