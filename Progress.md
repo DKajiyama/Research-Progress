@@ -385,7 +385,7 @@ generate SNs for each city and summarize their features.
   - Age  
   - Gender  
   - Office location (identified using Azis-Office-Identification)
-- Select users whose workplaces are located within ordinance-designated city (20 cities).  
+- Select users whose workplaces are located within ordinance-designated city (20 cities + Tokyo 23 wards).  
   - using administrative boundary data to identify the prefectural area.  
 
 
@@ -403,27 +403,28 @@ generate SNs for each city and summarize their features.
 ### Defining the Target Users for Analysis
 - Users who meet all the above conditions are defined as target users for analysis.
 
-| City         | # of Users |
-|--------------|------------|
-| Tokyo23ku    | 14195      |
-| Osaka        | 4780       |
-| Yokohama     | 3176       |
-| Nagoya       | 2565       |
-| Kyoto        | 1642       |
-| Kobe         | 1524       |
-| Fukuoka      | 1455       |
-| Sapporo      | 1507       |
-| Kawasaki     | 1241       |
-| Hiroshima    | 925        |
-| Saitama      | 1029       |
-| Sendai       | 847        |
-| Sakai        | 740        |
-| Chiba        | 738        |
-| Kitakyushu   | 509        |
-| Okayama      | 481        |
-| Hamamatsu    | 462        |
-| Shizuoka     | 475        |
-| Kumamoto     | 488        |
-| Niigata      | 458        |
-| Sagamihara   | 492        |
+| City               | # of Users | # of Costays |
+|--------------------|------------|--------------|
+| Sapporo            | 1507       | 1089         |
+| Sendai             | 847        | 752          |
+| Niigata            | 458        | 520          |
+| Saitama            | 1029       | 421          |
+| Tokyo 23 wards     | 14195      |              |
+| Chiba              | 738        |              |
+| Sagamihara         | 492        |              |
+| Kawasaki           | 1241       |              |
+| Yokohama           | 3176       |              |
+| Nagoya             | 2565       |              |
+| Kyoto              | 1642       |              |
+| Shizuoka           | 475        |              |
+| Hamamatsu          | 462        |              |
+| Osaka              | 4780       |              |
+| Kobe               | 1524       |              |
+| Okayama            | 481        |              |
+| Sakai              | 740        |              |
+| Hiroshima          | 925        |              |
+| Kitakyushu         | 509        |              |
+| Fukuoka            | 1455       |              |
+| Kumamoto           | 488        |              |
+
 
