@@ -403,49 +403,182 @@ generate SNs for each city and summarize their features.
 ### Defining the Target Users for Analysis
 - Users who meet all the above conditions are defined as target users for analysis.
 
-| City               | # of Users | # of Costays | 
-|--------------------|------------|--------------|
-| Sapporo            | 1507       | 1089         |
-| Sendai             | 847        | 752          |
-| Niigata            | 458        | 143     　　  |
-| Saitama            | 1029       | 520          |
-| Tokyo 23 wards     | 14195      |              |
-| Chiba              | 738        | 421          |
-| Sagamihara         | 492        | 260          |
-| Kawasaki           | 1241       | 900          |
-| Yokohama           | 3176       | 2823         |
-| Nagoya             | 2565       |              |
-| Kyoto              | 1642       |              |
-| Shizuoka           | 475        | 216          |
-| Hamamatsu          | 462        | 182          |
-| Osaka              | 4780       |              |
-| Kobe               | 1524       |              |
-| Okayama            | 481        |              |
-| Sakai              | 740        |              |
-| Hiroshima          | 925        |              |
-| Kitakyushu         | 509        |              |
-| Fukuoka            | 1455       |              |
-| Kumamoto           | 488        |              |
+| City               | # of Users | 
+|--------------------|------------|
+| Sapporo            | 1507       | 
+| Sendai             | 847        | 
+| Niigata            | 458        | 
+| Saitama            | 1029       | 
+| Tokyo 23 wards     | 14195      |              
+| Chiba              | 738        | 
+| Sagamihara         | 492        |          
+| Kawasaki           | 1241       | 
+| Yokohama           | 3176       | 
+| Nagoya             | 2565       |              
+| Kyoto              | 1642       |              
+| Shizuoka           | 475        |
+| Hamamatsu          | 462        | 
+| Osaka              | 4780       |              
+| Kobe               | 1524       |              
+| Okayama            | 481        |              
+| Sakai              | 740        |              
+| Hiroshima          | 925        |              
+| Kitakyushu         | 509        |              
+| Fukuoka            | 1455       |              
+| Kumamoto           | 488        |              
 
 20251224
+
+## Definition of Indicators
+
+This section defines the indicators used in the analysis. All indicators are computed at the city level based on observed co-location (co-stay) events among target users.
+
+---
+
+### 1. Co-location Probability (\(\alpha\))
+
+The co-location probability represents the proportion of resident pairs that actually experienced at least one co-stay among all possible resident pairs observed in a city on a given day.
+
+For city \(s\) on day \(d\), the co-location probability \(\alpha^{ds}\) is defined as:
+
+\[
+\alpha^{ds}
+=
+\frac{C^{ds}}
+{\binom{|O^{ds}|}{2}}
+\]
+
+where:
+
+- \(O^{ds}\): set of residents observed in city \(s\) on day \(d\)  
+- \(|O^{ds}|\): number of observed residents  
+- \(C^{ds}\): number of **unique resident pairs** that experienced at least one co-stay in city \(s\) on day \(d\)
+
+**Period aggregation**
+
+For an observation period \(D\), the city-level co-location probability is computed as the simple average of daily values:
+
+\[
+\alpha^{s}
+=
+\frac{1}{|D|}
+\sum_{d \in D}
+\alpha^{ds}
+\]
+
+For ease of interpretation, results are reported as \(\alpha \times 10^4\).
+
+---
+
+### 2. Events per Pair
+
+This indicator measures how frequently co-location occurs for pairs that have at least one co-stay.
+
+\[
+\text{events\_per\_pair}
+=
+\frac{\text{total\_costay\_events}}
+{\text{unique\_costay\_pairs}}
+\]
+
+where:
+
+- `total_costay_events`: total number of observed co-stay events  
+- `unique_costay_pairs`: number of unique resident pairs with at least one co-stay
+
+---
+
+### 3. In-city and Out-of-city Ratios
+
+**Definition**
+
+These ratios describe whether co-stay events occur inside or outside the administrative boundary of the target city.
+
+\[
+\text{in\_city\_ratio}
+=
+\frac{\text{Number of co-stay events occurring inside the city}}
+{\text{Total number of co-stay events}}
+\]
+
+\[
+\text{out\_city\_ratio}
+=
+1 - \text{in\_city\_ratio}
+\]
+
+---
+
+### 4. Weekday and Weekend Ratios
+
+These indicators represent the share of co-stay events occurring on weekdays versus weekends.
+
+\[
+\text{weekday\_ratio}
+=
+\frac{\text{Number of co-stay events on weekdays}}
+{\text{Total number of co-stay events}}
+\]
+
+\[
+\text{weekend\_ratio}
+=
+1 - \text{weekday\_ratio}
+\]
+
+Weekdays are defined as Monday through Friday, and weekends as Saturday and Sunday. Public holidays are not treated separately.
+
+---
+
+### 5. Weekday and Weekend Co-location Probabilities
+
+Co-location probabilities are also computed separately for weekdays and weekends by averaging daily co-location probabilities over the corresponding subsets of days.
+
+\[
+\alpha^{s}_{\text{weekday}}
+=
+\frac{1}{|D_{\text{weekday}}|}
+\sum_{d \in D_{\text{weekday}}}
+\frac{C^{ds}}{\binom{|O^{ds}|}{2}}
+\]
+
+\[
+\alpha^{s}_{\text{weekend}}
+=
+\frac{1}{|D_{\text{weekend}}|}
+\sum_{d \in D_{\text{weekend}}}
+\frac{C^{ds}}{\binom{|O^{ds}|}{2}}
+\]
+
+Results are reported as \(\alpha_{\text{weekday}} \times 10^4\) and \(\alpha_{\text{weekend}} \times 10^4\).
+
+## 20 city result
+| City | # of Users | total_costay_events | alpha_period_x1e4 | unique_costay_pairs | costay_per_pair | in_city_ratio | out_city_ratio | weekday_ratio | weekend_ratio | alpha_weekday_x1e4 | alpha_weekend_x1e4 |
+|------|------------|---------------------|-------------------|---------------------|-----------------|---------------|----------------|---------------|----------------|--------------------|--------------------|
+| Sapporo | 1507 | 1089 | 1.332 | 823 | 1.323 | 0.989 | 0.011 | 0.760 | 0.240 | 1.436 | 1.067 |
+| Sendai | 847 | 752 | 2.667 | 621 | 1.211 | 0.983 | 0.017 | 0.757 | 0.243 | 2.818 | 2.281 |
+| Niigata | 458 | 143 | 1.824 | 116 | 1.233 | 0.993 | 0.007 | 0.734 | 0.266 | 1.882 | 1.676 |
+| Saitama | 1029 | 520 | 1.348 | 439 | 1.185 | 0.962 | 0.038 | 0.800 | 0.200 | 1.525 | 0.897 |
+| Chiba | 738 | 421 | 1.547 | 243 | 1.733 | 0.945 | 0.055 | 0.565 | 0.435 | 1.660 | 1.256 |
+| Sagamihara | 492 | 260 | 2.112 | 142 | 1.831 | 0.912 | 0.088 | 0.650 | 0.350 | 2.238 | 1.789 |
+| Kawasaki | 1241 | 900 | 1.404 | 632 | 1.424 | 0.953 | 0.047 | 0.792 | 0.208 | 1.561 | 1.003 |
+| Yokohama | 3176 | 2823 | 0.677 | 2189 | 1.290 | 0.942 | 0.058 | 0.730 | 0.270 | 0.705 | 0.605 |
+| Shizuoka | 475 | 216 | 2.431 | 161 | 1.342 | 0.977 | 0.023 | 0.722 | 0.278 | 2.670 | 1.819 |
+| Hamamatsu | 462 | 182 | 1.736 | 103 | 1.767 | 0.989 | 0.011 | 0.725 | 0.275 | 1.813 | 1.539 |
+| Nagoya | 2565 | 2125 | 0.803 | 1653 | 1.286 | 0.965 | 0.035 | 0.803 | 0.197 | 0.900 | 0.555 |
+| Kyoto | 1642 | 1344 | 1.272 | 1043 | 1.289 | 0.967 | 0.033 | 0.739 | 0.261 | 1.368 | 1.027 |
+| Osaka | 4780 | 6164 | 0.762 | 5082 | 1.213 | 0.950 | 0.050 | 0.784 | 0.216 | 0.852 | 0.532 |
+| Sakai | 740 | 228 | 1.256 | 196 | 1.163 | 0.925 | 0.075 | 0.750 | 0.250 | 1.301 | 1.141 |
+| Kobe | 1524 | 1390 | 1.552 | 1195 | 1.163 | 0.973 | 0.027 | 0.755 | 0.245 | 1.677 | 1.232 |
+| Okayama | 481 | 237 | 2.376 | 153 | 1.549 | 0.983 | 0.017 | 0.722 | 0.278 | 2.601 | 1.801 |
+| Hiroshima | 925 | 623 | 2.059 | 554 | 1.125 | 0.976 | 0.024 | 0.690 | 0.310 | 2.177 | 1.758 |
+| Kitakyushu | 509 | 150 | 1.442 | 115 | 1.304 | 0.993 | 0.007 | 0.647 | 0.353 | 1.295 | 1.818 |
+| Fukuoka | 1455 | 1712 | 1.842 | 1289 | 1.328 | 0.970 | 0.030 | 0.761 | 0.239 | 1.984 | 1.480 |
+| Kumamoto | 488 | 184 | 2.115 | 137 | 1.343 | 0.940 | 0.060 | 0.630 | 0.370 | 2.043 | 2.297 |
+
+
+
 ## 
 <img width="1189" height="671" alt="image" src="https://github.com/user-attachments/assets/dc976a73-cc63-4ace-926a-2a11ce67df2f" />
 <img width="1189" height="512" alt="image" src="https://github.com/user-attachments/assets/ab97b120-1dda-4b9f-8102-6cf49aa20599" />
-
-| Municipality Code | City        | Outing Rate | Trips (Gross) | Trips (Net) | Avg. Trip Length (km/trip) | Avg. Trip Duration (min/trip) | Rail (%) | Bus (%) | Car (%) | Motorcycle (%) | Bicycle (%) | Walking & Others (%) |
-|-------------------|-------------|-------------|---------------|-------------|----------------------------|-------------------------------|----------|---------|---------|-----------------|-------------|----------------------|
-| 1100 | Sapporo | 83.014114 | 2.315305 | 2.78905 | 10.755024 | 26.175978 | 16.047152 | 6.108666 | 10.17015 | 39.475525 | 28.198508 |  |
-| 4100 | Sendai | 83.823561 | 2.345278 | 2.798153 | 11.071261 | 28.670525 | 14.689075 | 6.830475 | 8.182265 | 39.563972 | 30.734212 |  |
-| 9201 | Utsunomiya | 85.804376 | 2.387949 | 2.782892 | 11.358602 | 26.924483 | 16.859228 | 6.745195 | 8.466764 | 40.490809 | 27.438005 |  |
-| 12100 | Chiba | 86.626914 | 2.421009 | 2.794941 | 17.899459 | 34.864423 | 14.903306 | 6.259439 | 7.614085 | 40.689296 | 30.533874 |  |
-| 13100 | Tokyo 23 Wards | 88.820192 | 2.562043 | 2.884527 | 8.992291 | 31.515944 | 16.637746 | 5.017052 | 9.308529ა29 | 39.352937 | 29.683736 |  |
-| 14100 | Yokohama | 84.490732 | 2.30804 | 2.732162 | 13.083332 | 35.83114 | 15.993926 | 6.954701 | 6.454019 | 40.815596 | 29.781758 |  |
-| 14130 | Kawasaki | 88.158611 | 2.356792 | 2.673354 | 15.743485 | 36.403883 | 17.582222 | 7.210494 | 7.115144 | 41.17867 | 26.91347 |  |
-| 23100 | Nagoya | 87.694094 | 2.53868 | 2.894928 | 10.222936 | 27.86644 | 15.330968 | 6.743465 | 8.320516 | 40.517897 | 29.087154 |  |
-| 26100 | Kyoto | 85.003208 | 2.36113 | 2.777696 | 10.006432 | 28.05583 | 16.56817 | 6.675693 | 7.058937 | 41.342244 | 28.354956 |  |
-| 27100 | Osaka | 85.62883 | 2.339549 | 2.732198 | 8.510073 | 29.169465 | 17.802782 | 5.10484 | 8.266242 | 41.459661 | 27.366475 |  |
-| 27140 | Sakai | 85.481131 | 2.367515 | 2.76898 | 11.312623 | 30.115883 | 15.197359 | 6.607856 | 8.290218 | 41.781511 | 28.123056 |  |
-| 28100 | Kobe | 85.074654 | 2.31413 | 2.720117 | 13.617091 | 33.36662 | 15.888449 | 6.746817 | 5.732459 | 41.940981 | 29.691294 |  |
-| 34100 | Hiroshima | 86.81233 | 2.440862 | 2.811616 | 11.296038 | 28.316795 | 15.774251 | 6.545078 | 10.01521 | 40.216341 | 27.44912 |  |
- 7.066935 | 8.799093 | 39.809063 | 29.503152 |
 
