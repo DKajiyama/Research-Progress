@@ -403,21 +403,21 @@ generate SNs for each city and summarize their features.
 ### Defining the Target Users for Analysis
 - Users who meet all the above conditions are defined as target users for analysis.
 
-| City               | # of Users | # of Costays |
+| City               | # of Users | # of Costays | 
 |--------------------|------------|--------------|
 | Sapporo            | 1507       | 1089         |
 | Sendai             | 847        | 752          |
-| Niigata            | 458        | 520          |
-| Saitama            | 1029       | 421          |
+| Niigata            | 458        | 143     　　  |
+| Saitama            | 1029       | 520          |
 | Tokyo 23 wards     | 14195      |              |
-| Chiba              | 738        |              |
-| Sagamihara         | 492        |              |
-| Kawasaki           | 1241       |              |
-| Yokohama           | 3176       |              |
+| Chiba              | 738        | 421          |
+| Sagamihara         | 492        | 260          |
+| Kawasaki           | 1241       | 900          |
+| Yokohama           | 3176       | 2823         |
 | Nagoya             | 2565       |              |
 | Kyoto              | 1642       |              |
-| Shizuoka           | 475        |              |
-| Hamamatsu          | 462        |              |
+| Shizuoka           | 475        | 216          |
+| Hamamatsu          | 462        | 182          |
 | Osaka              | 4780       |              |
 | Kobe               | 1524       |              |
 | Okayama            | 481        |              |
@@ -427,4 +427,6 @@ generate SNs for each city and summarize their features.
 | Fukuoka            | 1455       |              |
 | Kumamoto           | 488        |              |
 
+20251224
 
+<img width="960" height="540" alt="image" src="https://github.com/user-attachments/assets/35397188-75d5-4f93-ad1d-a2eda304723b" />
