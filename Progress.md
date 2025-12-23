@@ -470,58 +470,64 @@ For ease of interpretation, results are reported as $$\alpha \times 10^4$$.
 
 ### 2. Events per Pair
 
-This indicator measures how frequently co-location occurs for pairs that have at least one co-stay.
+This indicator measures how frequently co-location occurs among resident pairs that have at least one observed co-stay.
 
 $$
-\text{events\_per\_pair}=
-\frac{\text{total\_costay\_events}}
-{\text{unique\_costay\_pairs}}
+\text{events}_{\text{per pair}}=
+\frac{N_{\text{costay}}}{N_{\text{pair}}}
 $$
 
 where:
 
-- `total_costay_events`: total number of observed co-stay events  
-- `unique_costay_pairs`: number of unique resident pairs with at least one co-stay
+- $$N_{\text{costay}}$$ denotes the total number of observed co-stay events,  
+- $$N_{\text{pair}}$$ denotes the number of unique resident pairs with at least one co-stay.
+
+A higher value indicates repeated co-location among the same pairs, whereas a lower value suggests mostly one-time or incidental co-location.
 
 ---
 
 ### 3. In-city and Out-of-city Ratios
 
-**Definition**
-
-These ratios describe whether co-stay events occur inside or outside the administrative boundary of the target city.
+These indicators describe whether co-stay events occur inside or outside the administrative boundary of the target city.
 
 $$
-\text{in\_city\_ratio}=
-\frac{\text{Number of co-stay events occurring inside the city}}
-{\text{Total number of co-stay events}}
+\text{in}_{\text{city}}=
+\frac{N^{\text{in}}_{\text{costay}}}{N_{\text{costay}}}
 $$
 
 $$
-\text{out\_city\_ratio}=
-1 - \text{in\_city\_ratio}
+\text{out}_{\text{city}}=
+1 - \text{in}_{\text{city}}
 $$
+
+where:
+
+- $$N^{\text{in}}_{\text{costay}}$$ is the number of co-stay events occurring inside the city boundary,  
+- $$N_{\text{costay}}$$ is the total number of co-stay events.
 
 ---
 
 ### 4. Weekday and Weekend Ratios
 
-These indicators represent the share of co-stay events occurring on weekdays versus weekends.
+These indicators represent the temporal composition of co-stay events across weekdays and weekends.
 
 $$
-\text{weekday\_ratio}=
-\frac{\text{Number of co-stay events on weekdays}}
-{\text{Total number of co-stay events}}
+\text{weekday}_{\text{ratio}}=
+\frac{N^{\text{weekday}}_{\text{costay}}}{N_{\text{costay}}}
 $$
 
 $$
-\text{weekend\_ratio}=
-1 - \text{weekday\_ratio}
+\text{weekend}_{\text{ratio}}=
+1 - \text{weekday}_{\text{ratio}}
 $$
+
+where:
+
+- $$N^{\text{weekday}}_{\text{costay}}$$ denotes the number of co-stay events occurring on weekdays,  
+- $$N_{\text{costay}}$$ denotes the total number of co-stay events.
 
 Weekdays are defined as Monday through Friday, and weekends as Saturday and Sunday. Public holidays are not treated separately.
 
----
 
 ### 5. Weekday and Weekend Co-location Probabilities
 
