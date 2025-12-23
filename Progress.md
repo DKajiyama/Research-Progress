@@ -435,38 +435,36 @@ This section defines the indicators used in the analysis. All indicators are com
 
 ---
 
-### 1. Co-location Probability (\(\alpha\))
+### 1. Co-location Probability ($$\alpha$$)
 
 The co-location probability represents the proportion of resident pairs that actually experienced at least one co-stay among all possible resident pairs observed in a city on a given day.
 
-For city \(s\) on day \(d\), the co-location probability \(\alpha^{ds}\) is defined as:
+For city $$s$$ on day　$$d$$, the co-location probability $$\alpha^{ds}$$ is defined as:
 
-\[
-\alpha^{ds}
-=
+$$
+\alpha^{ds}=
 \frac{C^{ds}}
 {\binom{|O^{ds}|}{2}}
-\]
+$$
 
 where:
 
-- \(O^{ds}\): set of residents observed in city \(s\) on day \(d\)  
-- \(|O^{ds}|\): number of observed residents  
-- \(C^{ds}\): number of **unique resident pairs** that experienced at least one co-stay in city \(s\) on day \(d\)
+- $$O^{ds}$$: set of residents observed in city $$s$$ on day $$d$$  
+- $$|O^{ds}|$$: number of observed residents  
+- $$C^{ds}$$: number of **unique resident pairs** that experienced at least one co-stay in city $$s$$ on day $$d$$
 
 **Period aggregation**
 
-For an observation period \(D\), the city-level co-location probability is computed as the simple average of daily values:
+For an observation period $$D$$, the city-level co-location probability is computed as the simple average of daily values:
 
-\[
-\alpha^{s}
-=
+$$
+\alpha^{s}=
 \frac{1}{|D|}
 \sum_{d \in D}
 \alpha^{ds}
-\]
+$$
 
-For ease of interpretation, results are reported as \(\alpha \times 10^4\).
+For ease of interpretation, results are reported as $$\alpha \times 10^4$$.
 
 ---
 
@@ -474,12 +472,11 @@ For ease of interpretation, results are reported as \(\alpha \times 10^4\).
 
 This indicator measures how frequently co-location occurs for pairs that have at least one co-stay.
 
-\[
-\text{events\_per\_pair}
-=
+$$
+\text{events\_per\_pair}=
 \frac{\text{total\_costay\_events}}
 {\text{unique\_costay\_pairs}}
-\]
+$$
 
 where:
 
@@ -494,18 +491,16 @@ where:
 
 These ratios describe whether co-stay events occur inside or outside the administrative boundary of the target city.
 
-\[
-\text{in\_city\_ratio}
-=
+$$
+\text{in\_city\_ratio}=
 \frac{\text{Number of co-stay events occurring inside the city}}
 {\text{Total number of co-stay events}}
-\]
+$$
 
-\[
-\text{out\_city\_ratio}
-=
+$$
+\text{out\_city\_ratio}=
 1 - \text{in\_city\_ratio}
-\]
+$$
 
 ---
 
@@ -513,18 +508,16 @@ These ratios describe whether co-stay events occur inside or outside the adminis
 
 These indicators represent the share of co-stay events occurring on weekdays versus weekends.
 
-\[
-\text{weekday\_ratio}
-=
+$$
+\text{weekday\_ratio}=
 \frac{\text{Number of co-stay events on weekdays}}
 {\text{Total number of co-stay events}}
-\]
+$$
 
-\[
-\text{weekend\_ratio}
-=
+$$
+\text{weekend\_ratio}=
 1 - \text{weekday\_ratio}
-\]
+$$
 
 Weekdays are defined as Monday through Friday, and weekends as Saturday and Sunday. Public holidays are not treated separately.
 
@@ -534,23 +527,21 @@ Weekdays are defined as Monday through Friday, and weekends as Saturday and Sund
 
 Co-location probabilities are also computed separately for weekdays and weekends by averaging daily co-location probabilities over the corresponding subsets of days.
 
-\[
-\alpha^{s}_{\text{weekday}}
-=
+$$
+\alpha^{s}_{\text{weekday}}=
 \frac{1}{|D_{\text{weekday}}|}
 \sum_{d \in D_{\text{weekday}}}
 \frac{C^{ds}}{\binom{|O^{ds}|}{2}}
-\]
+$$
 
-\[
-\alpha^{s}_{\text{weekend}}
-=
+$$
+\alpha^{s}_{\text{weekend}}=
 \frac{1}{|D_{\text{weekend}}|}
 \sum_{d \in D_{\text{weekend}}}
 \frac{C^{ds}}{\binom{|O^{ds}|}{2}}
-\]
+$$
 
-Results are reported as \(\alpha_{\text{weekday}} \times 10^4\) and \(\alpha_{\text{weekend}} \times 10^4\).
+Results are reported as $$\alpha_{\text{weekday}} \times 10^4$$ and $$\alpha_{\text{weekend}} \times 10^4$$.
 
 ## 20 city result
 | City | # of Users | total_costay_events | alpha_period_x1e4 | unique_costay_pairs | costay_per_pair | in_city_ratio | out_city_ratio | weekday_ratio | weekend_ratio | alpha_weekday_x1e4 | alpha_weekend_x1e4 |
