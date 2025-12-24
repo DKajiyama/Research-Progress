@@ -436,10 +436,12 @@ This section defines the indicators used in the analysis. All indicators are com
 ---
 
 ### 1. Co-location Probability ($$\alpha$$)
+* Ichinose's Definition
+<img width="2000" height="504" alt="image" src="https://github.com/user-attachments/assets/c1753b30-e056-42a0-8dbe-d1c7841833ae" />
 
 The co-location probability represents the proportion of resident pairs that actually experienced at least one co-stay among all possible resident pairs observed in a city on a given day.
 
-For city $$s$$ on day　$$d$$, the co-location probability $$\alpha^{ds}$$ is defined as:
+For city $$s$$ on day $$d$$, the co-location probability $$\alpha^{ds}$$ is defined as:
 
 $$
 \alpha^{ds}=
@@ -573,6 +575,16 @@ Results are reported as $$\alpha_{\text{weekday}} \times 10^4$$ and $$\alpha_{\t
 | Fukuoka | 1455 | 1712 | 1.842 | 1289 | 1.328 | 0.970 | 0.030 | 0.761 | 0.239 | 1.984 | 1.480 |
 | Kumamoto | 488 | 184 | 2.115 | 137 | 1.343 | 0.940 | 0.060 | 0.630 | 0.370 | 2.043 | 2.297 |
 
+<img width="638" height="367" alt="image" src="https://github.com/user-attachments/assets/9f04f245-f8f0-4290-9878-84de88cccf24" />
+
+- **alpha_period_x1e4**  
+  Higher values tend to be observed in smaller cities where activity spaces overlap more easily.  
+  The indicator also tends to decrease as the number of users increases.
+- **out_city_ratio**  
+  Cities with a high out-city ratio are often suburban or satellite cities within large metropolitan areas.  
+  Although residents live in these cities, their activities and co-stay events are more likely to occur in central cities.
+- **in_city_ratio**  
+  Cities with a high in-city ratio are characterized by urban functions that are largely self-contained within the city, resulting in most co-stay events occurring inside the administrative boundary.
 
 
 ## 
