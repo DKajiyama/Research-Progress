@@ -587,7 +587,10 @@ Results are reported as $$\alpha_{\text{weekday}} \times 10^4$$ and $$\alpha_{\t
   Cities with a high in-city ratio are characterized by urban functions that are largely self-contained within the city, resulting in most co-stay events occurring inside the administrative boundary.
 
 
-## 
+## Hourly Trends in Co-stay Occurrence on Weekdays and Weekends
 <img width="1189" height="671" alt="image" src="https://github.com/user-attachments/assets/dc976a73-cc63-4ace-926a-2a11ce67df2f" />
 <img width="1189" height="512" alt="image" src="https://github.com/user-attachments/assets/ab97b120-1dda-4b9f-8102-6cf49aa20599" />
 
+##　FutureTask
+(1) Analyze the relationship between city-level travel characteristics (H22) and co-stay / co-move interactions.
+(2) Generate social networks using a simplified learning model and examine their association with city-level travel characteristics.
