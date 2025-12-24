@@ -592,5 +592,5 @@ Results are reported as $$\alpha_{\text{weekday}} \times 10^4$$ and $$\alpha_{\t
 <img width="1189" height="512" alt="image" src="https://github.com/user-attachments/assets/ab97b120-1dda-4b9f-8102-6cf49aa20599" />
 
 ##　FutureTask
-(1) Analyze the relationship between city-level travel characteristics (H22) and co-stay / co-move interactions.
-(2) Generate social networks using a simplified learning model and examine their association with city-level travel characteristics.
+- (1) Analyze the relationship between city-level travel characteristics (H22) and co-stay / co-move interactions.
+- (2) Generate social networks using a simplified learning model and examine their association with city-level travel characteristics.
